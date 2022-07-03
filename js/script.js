@@ -9,3 +9,12 @@ let pokemonList = [
 //Honorable mentions:gengar, lapras, articuno, zapdos,
 //mewtwo, raichu, pidgeot.
 ];
+
+//working on the for part. Feel confused about it.
+for (let i=0; i < pokemonList.length; i++){
+  if (pokemonList[i].height <8 && pokemonList[i].height >0){
+    document.write(pokemonList[i].height + " is a short Pokemon");
+  }else if pokemonList[i].height >8){
+    document.write(pokemonList[i].height + " is a tall Pokemon");
+  }
+}
