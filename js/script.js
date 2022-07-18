@@ -1,20 +1,50 @@
-let pokemonList = [
+let pokemonRepository = (function () {
+  let repository = [
 //My 6 Starters always when playing pokemon growing up
-  {name:'Charizard', height:5.6, type:['fire', 'flying']},
-  {name:'Alakazam', height:4.9, type:['psychic']},
-  {name:'Dragonite', height:7.2, type:['dragon', 'flying']},
-  {name:'Scyther', height:4.9, type:['bug', 'flying']}.
-  {name:'Gyarados', height:21.3, type:['water', 'flying']},
-  {name:'Jolteon', height:2.6, type:['electric']},
+  {name:"Charizard", height:5.6, type:["fire", "flying"]},
+  {name:"Alakazam", height:4.9, type:["psychic"]},
+  {name:"Dragonite", height:7.2, type:["dragon", "flying"]},
+  {name:"Scyther", height:4.9, type:["bug", "flying"]},
+  {name:"Gyarados", height:21.3, type:["water", "flying"]},
+  {name:"Jolteon", height:2.6, type:["electric"]},
 //Honorable mentions:gengar, lapras, articuno, zapdos,
 //mewtwo, raichu, pidgeot.
 ];
-
-//working on the for part. Feel confused about it.
-for (let i=0; i < pokemonList.length; i++){
-  if (pokemonList[i].height <8 && pokemonList[i].height >0){
-    document.write(pokemonList[i].height + " is a short Pokemon");
-  }else if pokemonList[i].height >8){
-    document.write(pokemonList[i].height + " is a tall Pokemon");
+	function add(pokemon) {
+    if (
+      typeof pokemon === "object" &&
+      "name" in pokemon &&
+      "height" in pokemon &&
+      "types" in pokemon
+    ) {
+      repository.push(pokemon);
+    } else {
+      console.log("pokemon is not correct");
+    }
   }
-}
+  function getAll() {
+    return repository;
+  }
+function addListItem(pokemon){
+    let pokemonList = document.querySelector(".pokemon-list");
+    let listpokemon = document.createElement("li");
+    let button = document.createElement("button");
+    button.innerText = pokemon.name;
+    button.classList.add("button-class");
+    listpokemon.appendChild(button);
+    pokemonList.appendChild(listpokemon);
+    button.addEventListener("click", function() {
+      showDetails(pokemon);
+  }
+    return {
+        add: add,
+        getAll: getAll,
+        addListItem: addListItem
+      };
+    })();
+
+console.log(pokemonRepository.getAll());
+
+pokemonRepository.getAll().forEach(function (pokemon) {
+  pokemonRepository.addListItem(pokemon);
+});
