@@ -1,5 +1,5 @@
 .pokemonButton {
-  background-color: #1670f7
+  background-color: #1670f7;
   border: none;
   color: white;
   padding: 16px 32px;
@@ -9,7 +9,7 @@
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
-  -webkit-transition-duration: 0.4s; /* Safari */
+  -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   cursor: pointer;
   background-color: white;
@@ -17,26 +17,7 @@
   border: 2px solid #1670f7;
 }
 
-/* .body {
-  background: url('pokeball.png');
-  background-repeat: no-repeat;
-  background-position: center;
-} */
 
-/* #modal-container {
-  position: fixed;
-  padding: 20px;
-  box-sizing: border-box;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  overflow: auto;
-  display: grid;
-  text-align: center;
-} */
 .pokemon-container {
   text-align: center;
   padding: 0 2px;
@@ -69,11 +50,3 @@
 .modal p {
   margin-bottom: 0;
 }
-
-/* #modal-container {
-  display: none;
-}
-
-#modal-container.is-visible {
-  display: block;
-} */
