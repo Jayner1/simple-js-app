@@ -96,6 +96,23 @@ let pokemonRepository = (function() {
 		modalBody.append(abilitiesElement);
 	}
 
+	const search = document.getElementById('search')
+	search.addEventListener('input', searchList);
+
+	function searchList() {
+		let searchInput = document.getElementById('search').value;
+		searchInput = searchInput.toLowerCase();
+		const listItems = ('button');
+		listItems.each(function() {
+		const item = (this);
+		const name = item.text();
+		if (name.includes(searchInput)) {
+		item.show();
+		} else {
+		item.hide();
+		}});
+	}
+
 	return {
 		add: add,
 		getAll: getAll,
@@ -111,12 +128,3 @@ pokemonRepository.loadList().then(function() {
 		pokemonRepository.addListItem(pokemon);
 	});
 });
-// //My 6 Starters always when playing pokemon growing up
-// { name: "Charizard", height: 5.6, types: ["fire", "flying"] },
-// { name: "Alakazam", height: 4.9, types: ["psychic"] },
-// { name: "Dragonite", height: 7.2, types: ["dragon", "flying"] },
-// { name: "Scyther", height: 4.9, types: ["bug", "flying"] },
-// { name: "Gyarados", height: 21.3, types: ["water", "flying"] },
-// { name: "Jolteon", height: 2.6, types: ["electric"] },
-// //Honorable mentions:gengar, lapras, articuno, zapdos,
-// //mewtwo, raichu, pidgeot.
