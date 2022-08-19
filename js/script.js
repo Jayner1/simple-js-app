@@ -1,7 +1,6 @@
 let pokemonRepository = (function() {
 	let pokemonList = [];
 	let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150';
-	let modalContainer = document.querySelector('#modal-container');
 
 	function add(pokemon) {
 		if (typeof pokemon === 'object' && 'name' in pokemon && 'detailsUrl' in pokemon) {
@@ -25,10 +24,10 @@ let pokemonRepository = (function() {
 		buttonItem.innerText = pokemon.name;
 		buttonItem.setAttribute('data-toggle', 'modal');
 		buttonItem.setAttribute('data-target', '#pokemon-modal');
-		$(buttonItem).addClass('button-class btn-block btn m1');
+		(buttonItem).addClass('button-class btn-block btn m1');
 		pokemonItem.appendChild(buttonItem);
 		pokemonList.appendChild(pokemonItem);
-		buttonItem.addEventListener('click', function(event) {
+		buttonItem.addEventListener('click', function() {
 			showDetails(pokemon);
 		});
 	}
@@ -76,18 +75,18 @@ let pokemonRepository = (function() {
 	}
 
 	function showModal(pokemon) {
-		let modalBody = $('.modal-body');
-		let modalTitle = $('.modal-title');
+		let modalBody = ('.modal-body');
+		let modalTitle = ('.modal-title');
 
 		modalTitle.empty();
 		modalBody.empty();
-		let nameElement = $('<h1>' + pokemon.name + '</h1>');
-		let imageElement = $('<img class="pokemon-img">');
+		let nameElement = ('<h1>' + pokemon.name + '</h1>');
+		let imageElement = ('<img class="pokemon-img">');
 		imageElement.attr('src', pokemon.imageUrl);
-		let heightElement = $('<p>' + 'Height : ' + pokemon.height + '</p>');
-		let weightElement = $('<p>' + 'Weight : ' + pokemon.weight + '</p>');
-		let typeElement = $('<p>' + 'Types : ' + pokemon.types + '</p>');
-		let abilitiesElement = $('<p>' + 'Abilities : ' + pokemon.abilities + '</p>');
+		let heightElement = ('<p>' + 'Height : ' + pokemon.height + '</p>');
+		let weightElement = ('<p>' + 'Weight : ' + pokemon.weight + '</p>');
+		let typeElement = ('<p>' + 'Types : ' + pokemon.types + '</p>');
+		let abilitiesElement = ('<p>' + 'Abilities : ' + pokemon.abilities + '</p>');
 
 		modalTitle.append(nameElement);
 		modalBody.append(imageElement);
